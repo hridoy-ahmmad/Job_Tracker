@@ -6,6 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>Document</title>
 </head>
 
@@ -17,30 +20,91 @@
             <div class="md:grid md:grid-cols-3 items-center gap-3 space-y-1">
                 <div class="bg-white py-2 px-4 rounded-sm">
                     <p class="font-semibold ">Total</p>
-                    <p class="text-xl font-bold">0</p>
+                    <p id="totalCount" class="text-xl font-bold">0</p>
                 </div>
                 <div class="bg-white py-2 px-4 rounded-sm">
                     <p class="font-semibold ">Interview</p>
-                    <p class="text-xl font-bold text-green-600">0</p>
+                    <p id="interviewCount" class="text-xl font-bold text-green-600">0</p>
                 </div>
                 <div class="bg-white py-2 px-4 rounded-sm">
                     <p class="font-semibold">Rejected</p>
-                    <p class="text-xl font-bold text-red-600">0</p>
+                    <p id="rejectedCount" class="text-xl font-bold text-red-600">0</p>
                 </div>
             </div>
             <hr class="md:my-8 border-gray-300">
         </section>
 
 
-        <!-- jobs section -->
-        <section class="space-y-4">
-            <h1 class="text-xl font-bold text-black">Available jobs</h1>
-            <div class="">
-                <button onclick="changeActiveColor('allJobBtn')" id="allJobBtn" class="px-4 py-1 bg-blue-600 rounded-sm text-white">All</button>
-                <button onclick="changeActiveColor('interviewBtn')" id="interviewBtn" class="px-4 py-1 bg-white rounded-sm">Interview</button>
-                <button onclick="changeActiveColor('rejectedBtn')" id="rejectedBtn" class="px-4 py-1 bg-white rounded-sm">Rejected</button>
+        <!-- jobs title section -->
+        <section class="space-y-4 mb-4">
+            <div class="flex justify-between items-center">
+                <h1 class="text-xl font-bold text-black">Available jobs</h1>
+                <p class="text-sm font-semibold text-black/70"> <span id="TotalJobs">0</span> jobs </p>
             </div>
+            <div class="">
+                <button onclick="changeActiveColor('allJobBtn')" id="allJobBtn"
+                    class="px-4 py-1 bg-blue-600 rounded-sm text-white">All</button>
+                <button onclick="changeActiveColor('interviewBtn')" id="interviewBtn"
+                    class="px-4 py-1 bg-white rounded-sm">Interview</button>
+                <button onclick="changeActiveColor('rejectedBtn')" id="rejectedBtn"
+                    class="px-4 py-1 bg-white rounded-sm">Rejected</button>
+            </div>
+        </section>
 
+        <!-- Jobs section -->
+        <section id="jobsCard" class="space-y-5">
+            <!-- cards -->
+            <div class="flex justify-between p-6 bg-white shadow">
+                <div class="space-y-3">
+                    <div>
+                        <h1 class="text-xl font-bold">Mobile First Corp</h1>
+                        <p class="text-semibold text-sm text-black/70">React Native Developer</p>
+                    </div>
+                    <p class="text-semibold text-sm text-black/70">Remote
+                        •
+                        Full-time
+                        •
+                        $130,000 - $175,000</p>
+                    <div>
+                        <p class="bg-gray-200 px-3 rounded-sm inline-block text-sm font-semibold">NOT APPLIED</p>
+                        <p class="text-semibold text-sm text-black/70">Build cross-platform mobile applications using React Native. Work on products used by millions of users worldwide.</p>
+                    </div>
+                    <div>
+                        <button class="btn btn-outline btn-success">INTERVIEW</button>
+                        <button class="btn btn-outline btn-secondary">REJECTED</button>
+
+                    </div>
+                </div>
+                <div>
+                    <i class="fa-solid fa-trash-can cursor-pointer"></i>
+                </div>
+            </div>
+            <div class="flex justify-between p-6 bg-white shadow">
+                <div class="space-y-3">
+                    <div>
+                        <h1 class="text-xl font-bold">Mobile First Corp</h1>
+                        <p class="text-semibold text-sm text-black/70">React Native Developer</p>
+                    </div>
+                    <p class="text-semibold text-sm text-black/70">Remote
+                        •
+                        Full-time
+                        •
+                        $130,000 - $175,000</p>
+                    <div>
+                        <p class="bg-gray-200 px-3 rounded-sm inline-block text-sm font-semibold">NOT APPLIED</p>
+                        <p class="text-semibold text-sm text-black/70">Build cross-platform mobile applications using React Native. Work on products used by millions of users worldwide.</p>
+                    </div>
+                    <div>
+                        <button class="btn btn-outline btn-success">INTERVIEW</button>
+                        <button class="btn btn-outline btn-secondary">REJECTED</button>
+
+                    </div>
+                </div>
+                <div>
+                    <i class="fa-solid fa-trash-can cursor-pointer"></i>
+                </div>
+            </div>
+            
         </section>
 
     </main>
