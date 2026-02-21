@@ -31,6 +31,11 @@ function changeActiveColor(id) {
         jobsCard.classList.remove('hidden')
         filteredSection.classList.add('hidden')
     }
+    if (id === 'rejectedBtn') {
+        jobsCard.classList.add('hidden')
+        filteredSection.classList.remove('hidden')
+
+    }
 }
 
 
@@ -113,42 +118,41 @@ mainContainer.addEventListener('click', function (event) {
         const jobInfo = parent.querySelector('.jobInfo').innerText
         const jobStatus = parent.querySelector('.jobStatus').innerText
         const jobDescrip = parent.querySelector('.jobDescrip').innerText
-        parent.querySelector('.jobStatus').innerText = 'Interviewed'
+        parent.querySelector('.jobStatus').innerText = 'Rejected'
 
 
         const cardInfo = {
             jobName,
             jobTitle,
             jobInfo,
-            jobStatus: 'Interviewed',
+            jobStatus: 'Rejected',
             jobDescrip
         }
 
-        const isExist = interviewList.find(item => item.jobName === cardInfo.jobName)
+        const isExist = rejectedList.find(item => item.jobName === cardInfo.jobName)
 
         if (!isExist) {
-            interviewList.push(cardInfo)
+            rejectedList.push(cardInfo)
         }
         counter()
-        function interviewRendering() {
+        function rejectedRendering() {
             filteredSection.innerHTML = ''
 
-            for (const interview of interviewList) {
-                console.log(interview);
+            for (const rejected of rejectedList) {
 
                 const div = document.createElement('div')
                 div.className = 'flex justify-between p-6 bg-white shadow'
                 div.innerHTML = `
                 <div class="space-y-3">
                     <div>
-                        <h1 class="text-xl font-bold jobName">${interview.jobName}</h1>
-                        <p class="text-semibold text-sm text-black/70 jobTitle">${interview.jobTitle}</p>
+                        <h1 class="text-xl font-bold jobName">${rejected.jobName}</h1>
+                        <p class="text-semibold text-sm text-black/70 jobTitle">${rejected.jobTitle}</p>
                     </div>
                     <p class="text-semibold text-sm text-black/70 jobInfo">
-                        ${interview.jobInfo}
+                        ${rejected.jobInfo}
                     <div>
-                        <p class="bg-gray-200 px-3 rounded-sm inline-block text-sm font-semibold jobStatus">${interview.jobStatus}</p>
-                        <p class="text-semibold text-sm text-black/70 jobDescrip">${interview.jobDescrip}</p>
+                        <p class="bg-gray-200 px-3 rounded-sm inline-block text-sm font-semibold jobStatus">${rejected.jobStatus}</p>
+                        <p class="text-semibold text-sm text-black/70 jobDescrip">${rejected.jobDescrip}</p>
                     </div>
                     <div>
                         <button class="btn btn-outline btn-success">INTERVIEW</button>
@@ -163,7 +167,7 @@ mainContainer.addEventListener('click', function (event) {
                 filteredSection.appendChild(div)
             }
         }
-        interviewRendering()
+        rejectedRendering()
     }
 
 })
