@@ -9,8 +9,42 @@
     <title>Document</title>
 </head>
 
-<body>
-    <h1>hello</h1>
+<body class="bg-base-300">
+    <main class="md:w-10/12 w-11/12 mx-auto min-h-screen md:pt-10">
+        <!-- count section -->
+        <section class="space-y-2">
+            <h1 class="text-2xl font-bold text-black">Job application Tracker</h1>
+            <div class="md:grid md:grid-cols-3 items-center gap-3 space-y-1">
+                <div class="bg-white py-2 px-4 rounded-sm">
+                    <p class="font-semibold ">Total</p>
+                    <p class="text-xl font-bold">0</p>
+                </div>
+                <div class="bg-white py-2 px-4 rounded-sm">
+                    <p class="font-semibold ">Interview</p>
+                    <p class="text-xl font-bold text-green-600">0</p>
+                </div>
+                <div class="bg-white py-2 px-4 rounded-sm">
+                    <p class="font-semibold">Rejected</p>
+                    <p class="text-xl font-bold text-red-600">0</p>
+                </div>
+            </div>
+            <hr class="md:my-8 border-gray-300">
+        </section>
+
+
+        <!-- jobs section -->
+        <section class="space-y-4">
+            <h1 class="text-xl font-bold text-black">Available jobs</h1>
+            <div class="">
+                <button onclick="changeActiveColor('allJobBtn')" id="allJobBtn" class="px-4 py-1 bg-blue-600 rounded-sm text-white">All</button>
+                <button onclick="changeActiveColor('interviewBtn')" id="interviewBtn" class="px-4 py-1 bg-white rounded-sm">Interview</button>
+                <button onclick="changeActiveColor('rejectedBtn')" id="rejectedBtn" class="px-4 py-1 bg-white rounded-sm">Rejected</button>
+            </div>
+
+        </section>
+
+    </main>
+    <script src="script.js"></script>
 </body>
 
 </html>
