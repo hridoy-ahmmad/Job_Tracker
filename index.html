@@ -51,60 +51,193 @@
             </div>
         </section>
 
+        <!-- Filtered Section -->
+        <section id="filteredSection" class="hidden">
+
+        </section>
+
         <!-- Jobs section -->
         <section id="jobsCard" class="space-y-5">
             <!-- cards -->
-            <div class="flex justify-between p-6 bg-white shadow">
+            <div class="flex justify-between p-6 bg-white shadow jobCard">
                 <div class="space-y-3">
                     <div>
-                        <h1 class="text-xl font-bold">Mobile First Corp</h1>
-                        <p class="text-semibold text-sm text-black/70">React Native Developer</p>
+                        <h1 class="text-xl font-bold jobName">Mobile First Corp</h1>
+                        <p class="text-semibold text-sm text-black/70 jobTitle">React Native Developer</p>
                     </div>
-                    <p class="text-semibold text-sm text-black/70">Remote
+                    <p class="text-semibold text-sm text-black/70 jobInfo">Remote
                         •
                         Full-time
                         •
                         $130,000 - $175,000</p>
                     <div>
-                        <p class="bg-gray-200 px-3 rounded-sm inline-block text-sm font-semibold">NOT APPLIED</p>
-                        <p class="text-semibold text-sm text-black/70">Build cross-platform mobile applications using React Native. Work on products used by millions of users worldwide.</p>
+                        <p class="bg-gray-200 px-3 rounded-sm inline-block text-sm font-semibold jobStatus">NOT APPLIED
+                        </p>
+                        <p class="text-semibold text-sm text-black/70 jobDescrip">Build cross-platform mobile
+                            applications using React Native. Work on products used by millions of users worldwide.</p>
                     </div>
                     <div>
-                        <button class="btn btn-outline btn-success">INTERVIEW</button>
+                        <button class="btn btn-outline btn-success interviewBtn">INTERVIEW</button>
                         <button class="btn btn-outline btn-secondary">REJECTED</button>
 
                     </div>
                 </div>
                 <div>
-                    <i class="fa-solid fa-trash-can cursor-pointer"></i>
+                    <i  class="fa-solid fa-trash-can cursor-pointer deleteBtn"></i>
                 </div>
             </div>
-            <div class="flex justify-between p-6 bg-white shadow">
+
+            <!-- 2 -->
+            <div class="flex justify-between p-6 bg-white shadow jobCard">
                 <div class="space-y-3">
                     <div>
-                        <h1 class="text-xl font-bold">Mobile First Corp</h1>
-                        <p class="text-semibold text-sm text-black/70">React Native Developer</p>
+                        <h1 class="text-xl font-bold jobName">TechNova Solutions</h1>
+                        <p class="text-semibold text-sm text-black/70 jobTitle">Frontend Developer</p>
                     </div>
-                    <p class="text-semibold text-sm text-black/70">Remote
-                        •
-                        Full-time
-                        •
-                        $130,000 - $175,000</p>
+                    <p class="text-semibold text-sm text-black/70 jobInfo">Remote • Full-time • $90,000 - $120,000</p>
                     <div>
-                        <p class="bg-gray-200 px-3 rounded-sm inline-block text-sm font-semibold">NOT APPLIED</p>
-                        <p class="text-semibold text-sm text-black/70">Build cross-platform mobile applications using React Native. Work on products used by millions of users worldwide.</p>
+                        <p class="bg-gray-200 px-3 rounded-sm inline-block text-sm font-semibold jobStatus">NOT APPLIED</p>
+                        <p class="text-semibold text-sm text-black/70 jobDescrip">Develop modern UI using React and
+                            Tailwind CSS.</p>
                     </div>
                     <div>
-                        <button class="btn btn-outline btn-success">INTERVIEW</button>
+                        <button class="btn btn-outline btn-success interviewBtn">INTERVIEW</button>
                         <button class="btn btn-outline btn-secondary">REJECTED</button>
-
                     </div>
                 </div>
-                <div>
-                    <i class="fa-solid fa-trash-can cursor-pointer"></i>
-                </div>
+                <div><i class="fa-solid fa-trash-can cursor-pointer deleteBtn"></i></div>
             </div>
-            
+
+            <!-- 3 -->
+            <div class="flex justify-between p-6 bg-white shadow jobCard">
+                <div class="space-y-3">
+                    <div>
+                        <h1 class="text-xl font-bold jobName">CodeCrafters</h1>
+                        <p class="text-semibold text-sm text-black/70 jobTitle">Junior JavaScript Developer</p>
+                    </div>
+                    <p class="text-semibold text-sm text-black/70 jobInfo">Onsite • Full-time • $50,000 - $70,000</p>
+                    <div>
+                        <p class="bg-gray-200 px-3 rounded-sm inline-block text-sm font-semibold jobStatus">NOT APPLIED
+                        </p>
+                        <p class="text-semibold text-sm text-black/70 jobDescrip">Work with core JavaScript and DOM
+                            manipulation.</p>
+                    </div>
+                    <div>
+                        <button class="btn btn-outline btn-success interviewBtn">INTERVIEW</button>
+                        <button class="btn btn-outline btn-secondary">REJECTED</button>
+                    </div>
+                </div>
+                <div><i class="fa-solid fa-trash-can cursor-pointer deleteBtn"></i></div>
+            </div>
+
+            <!-- 4 -->
+            <div class="flex justify-between p-6 bg-white shadow jobCard">
+                <div class="space-y-3">
+                    <div>
+                        <h1 class="text-xl font-bold jobName">CloudWare Inc</h1>
+                        <p class="text-semibold text-sm text-black/70 jobTitle">MERN Stack Developer</p>
+                    </div>
+                    <p class="text-semibold text-sm text-black/70 jobInfo">Remote • Contract • $110,000 - $140,000</p>
+                    <div>
+                        <p class="bg-gray-200 px-3 rounded-sm inline-block text-sm font-semibold jobStatus">NOT APPLIED</p>
+                        <p class="text-semibold text-sm text-black/70 jobDescrip">Build scalable web apps using MongoDB,
+                            Express, React, Node.</p>
+                    </div>
+                    <div>
+                        <button class="btn btn-outline btn-success interviewBtn">INTERVIEW</button>
+                        <button class="btn btn-outline btn-secondary">REJECTED</button>
+                    </div>
+                </div>
+                <div><i class="fa-solid fa-trash-can cursor-pointer deleteBtn"></i></div>
+            </div>
+
+            <!-- 5 -->
+            <div class="flex justify-between p-6 bg-white shadow jobCard">
+                <div class="space-y-3">
+                    <div>
+                        <h1 class="text-xl font-bold jobName">Pixel Agency</h1>
+                        <p class="text-semibold text-sm text-black/70 jobTitle">UI Developer</p>
+                    </div>
+                    <p class="text-semibold text-sm text-black/70 jobInfo">Hybrid • Full-time • $75,000 - $95,000</p>
+                    <div>
+                        <p class="bg-gray-200 px-3 rounded-sm inline-block text-sm font-semibold jobStatus">NOT APPLIED</p>
+                        <p class="text-semibold text-sm text-black/70 jobDescrip">Convert Figma designs into
+                            pixel-perfect UI.</p>
+                    </div>
+                    <div>
+                        <button class="btn btn-outline btn-success interviewBtn">INTERVIEW</button>
+                        <button class="btn btn-outline btn-secondary">REJECTED</button>
+                    </div>
+                </div>
+                <div><i class="fa-solid fa-trash-can cursor-pointer deleteBtn"></i></div>
+            </div>
+
+            <!-- 6 -->
+            <div class="flex justify-between p-6 bg-white shadow jobCard">
+                <div class="space-y-3">
+                    <div>
+                        <h1 class="text-xl font-bold jobName">DataBridge</h1>
+                        <p class="text-semibold text-sm text-black/70 jobTitle">Backend Developer</p>
+                    </div>
+                    <p class="text-semibold text-sm text-black/70 jobInfo">Remote • Full-time • $120,000 - $150,000</p>
+                    <div>
+                        <p class="bg-gray-200 px-3 rounded-sm inline-block text-sm font-semibold jobStatus">NOT APPLIED
+                        </p>
+                        <p class="text-semibold text-sm text-black/70 jobDescrip">Design REST APIs and manage databases.
+                        </p>
+                    </div>
+                    <div>
+                        <button class="btn btn-outline btn-success interviewBtn">INTERVIEW</button>
+                        <button class="btn btn-outline btn-secondary">REJECTED</button>
+                    </div>
+                </div>
+                <div><i class="fa-solid fa-trash-can cursor-pointer deleteBtn"></i></div>
+            </div>
+
+            <!-- 7 -->
+            <div class="flex justify-between p-6 bg-white shadow jobCard">
+                <div class="space-y-3">
+                    <div>
+                        <h1 class="text-xl font-bold jobName">StartupX</h1>
+                        <p class="text-semibold text-sm text-black/70 jobTitle">Full Stack Developer</p>
+                    </div>
+                    <p class="text-semibold text-sm text-black/70 jobInfo">Remote • Startup • $80,000 - $110,000</p>
+                    <div>
+                        <p class="bg-gray-200 px-3 rounded-sm inline-block text-sm font-semibold jobStatus">NOT APPLIED</p>
+                        <p class="text-semibold text-sm text-black/70 jobDescrip">Work across frontend and backend
+                            features.</p>
+                    </div>
+                    <div>
+                        <button class="btn btn-outline btn-success interviewBtn">INTERVIEW</button>
+                        <button class="btn btn-outline btn-secondary">REJECTED</button>
+                    </div>
+                </div>
+                <div><i class="fa-solid fa-trash-can cursor-pointer deleteBtn"></i></div>
+            </div>
+
+            <!-- 8 -->
+            <div class="flex justify-between p-6 bg-white shadow jobCard">
+                <div class="space-y-3">
+                    <div>
+                        <h1 class="text-xl font-bold jobName">Appify Labs</h1>
+                        <p class="text-semibold text-sm text-black/70 jobTitle">React Developer</p>
+                    </div>
+                    <p class="text-semibold text-sm text-black/70 jobInfo">Remote • Full-time • $95,000 - $125,000</p>
+                    <div>
+                        <p class="bg-gray-200 px-3 rounded-sm inline-block text-sm font-semibold jobStatus">NOT APPLIED</p>
+                        <p class="text-semibold text-sm text-black/70 jobDescrip">Develop high-performance React
+                            applications.</p>
+                    </div>
+                    <div>
+                        <button class="btn btn-outline btn-success interviewBtn">INTERVIEW</button>
+                        <button class="btn btn-outline btn-secondary">REJECTED</button>
+                    </div>
+                </div>
+                <div><i class="fa-solid fa-trash-can cursor-pointer deleteBtn"></i></div>
+            </div>
+
+
+
         </section>
 
     </main>
