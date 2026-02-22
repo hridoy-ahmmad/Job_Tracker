@@ -21,7 +21,7 @@ function changeActiveColor(id) {
     allJobs.classList.add('bg-white', 'text-black')
 
     const selected = document.getElementById(id)
-    
+
     selected.classList.remove('bg-white', 'text-black')
     selected.classList.add('bg-blue-600', 'text-white')
 
@@ -135,6 +135,22 @@ mainContainer.addEventListener('click', function (event) {
 
 })
 function interviewRendering() {
+
+    if (interviewList.length === 0) {
+        interviewSection.innerHTML = `
+        <div class="flex flex-col items-center justify-center md:h-64 bg-gray-50 rounded-lg shadow-md">
+                <!-- Icon -->
+               <img src="assests/assignment_7959593 1.png" alt="">
+
+                <!-- Heading -->
+                <h2 class="text-gray-700 text-xl font-semibold mb-2">No jobs available</h2>
+
+                <!-- Description -->
+                <p class="text-gray-500 text-sm text-center">Check back soon for new job opportunities</p>
+            </div>
+        `
+        return;
+    }
     interviewSection.innerHTML = ''
     console.log(interviewList);
 
@@ -169,6 +185,22 @@ function interviewRendering() {
     }
 }
 function rejectedRendering() {
+
+    if (rejectedList.length === 0) {
+        rejectedSection.innerHTML = `
+        <div class="flex flex-col items-center justify-center md:h-64 bg-gray-50 rounded-lg shadow-md">
+                <!-- Icon -->
+               <img src="assests/assignment_7959593 1.png" alt="">
+
+                <!-- Heading -->
+                <h2 class="text-gray-700 text-xl font-semibold mb-2">No jobs available</h2>
+
+                <!-- Description -->
+                <p class="text-gray-500 text-sm text-center">Check back soon for new job opportunities</p>
+            </div>
+        `
+        return;
+    }
     rejectedSection.innerHTML = ''
 
     for (const rejected of rejectedList) {
