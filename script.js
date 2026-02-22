@@ -129,8 +129,9 @@ mainContainer.addEventListener('click', function (event) {
         const jobName = jobCard.querySelector('.jobName').innerText
         interviewList = interviewList.filter(item => item.jobName !== jobName)
         rejectedList = rejectedList.filter(item => item.jobName !== jobName)
-
         counter()
+        rejectedRendering()
+        interviewRendering()
     }
 
 })
