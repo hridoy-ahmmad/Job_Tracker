@@ -6,10 +6,11 @@ let totalCount = document.getElementById('totalCount')
 let interviewCount = document.getElementById('interviewCount')
 let rejectedCount = document.getElementById('rejectedCount')
 let TotalJobs = document.getElementById('TotalJobs')
-let filteredSection = document.getElementById('filteredSection')
+let interviewSection = document.getElementById('interviewSection')
+let rejectedSection = document.getElementById('rejectedSection')
 let interviewList = []
 let rejectedList = []
-
+let courrentStatus = 'All'
 function changeActiveColor(id) {
     rejectedBtn.classList.remove('bg-blue-600', 'text-white')
     interviewBtn.classList.remove('bg-blue-600', 'text-white')
@@ -20,20 +21,25 @@ function changeActiveColor(id) {
     allJobs.classList.add('bg-white', 'text-black')
 
     const selected = document.getElementById(id)
+    
     selected.classList.remove('bg-white', 'text-black')
     selected.classList.add('bg-blue-600', 'text-white')
 
     if (id === 'interviewBtn') {
         jobsCard.classList.add('hidden')
-        filteredSection.classList.remove('hidden')
+        interviewSection.classList.remove('hidden')
+        rejectedSection.classList.add('hidden')
     }
     if (id === 'allJobBtn') {
         jobsCard.classList.remove('hidden')
-        filteredSection.classList.add('hidden')
+        interviewSection.classList.add('hidden')
+        rejectedSection.classList.add('hidden')
     }
     if (id === 'rejectedBtn') {
         jobsCard.classList.add('hidden')
-        filteredSection.classList.remove('hidden')
+        interviewSection.classList.add('hidden')
+        rejectedSection.classList.remove('hidden')
+
 
     }
 }
@@ -75,41 +81,13 @@ mainContainer.addEventListener('click', function (event) {
         if (!isExist) {
             interviewList.push(cardInfo)
         }
+        rejectedList = rejectedList.filter(item => item.jobName != cardInfo.jobName)
+        console.log({ interviewList, rejectedList });
+
         counter()
-        function interviewRendering() {
-            filteredSection.innerHTML = ''
 
-            for (const interview of interviewList) {
-                console.log(interview);
-
-                const div = document.createElement('div')
-                div.className = 'flex justify-between p-6 bg-white shadow'
-                div.innerHTML = `
-                <div class="space-y-3">
-                    <div>
-                        <h1 class="text-xl font-bold jobName">${interview.jobName}</h1>
-                        <p class="text-semibold text-sm text-black/70 jobTitle">${interview.jobTitle}</p>
-                    </div>
-                    <p class="text-semibold text-sm text-black/70 jobInfo">
-                        ${interview.jobInfo}
-                    <div>
-                        <p class="bg-gray-200 px-3 rounded-sm inline-block text-sm font-semibold jobStatus">${interview.jobStatus}</p>
-                        <p class="text-semibold text-sm text-black/70 jobDescrip">${interview.jobDescrip}</p>
-                    </div>
-                    <div>
-                        <button class="btn btn-outline btn-success">INTERVIEW</button>
-                        <button class="btn btn-outline btn-secondary">REJECTED</button>
-
-                    </div>
-                </div>
-                <div>
-                    <i class="fa-solid fa-trash-can cursor-pointer"></i>
-                </div>
-            `
-                filteredSection.appendChild(div)
-            }
-        }
         interviewRendering()
+        rejectedRendering()
     }
     else if (event.target.classList.contains('rejectedBtn')) {
         const parent = event.target.parentNode.parentNode
@@ -134,15 +112,70 @@ mainContainer.addEventListener('click', function (event) {
         if (!isExist) {
             rejectedList.push(cardInfo)
         }
+        interviewList = interviewList.filter(item => item.jobName != cardInfo.jobName)
+
+
         counter()
-        function rejectedRendering() {
-            filteredSection.innerHTML = ''
 
-            for (const rejected of rejectedList) {
+        rejectedRendering()
+        interviewRendering()
 
-                const div = document.createElement('div')
-                div.className = 'flex justify-between p-6 bg-white shadow'
-                div.innerHTML = `
+    }
+
+    if (event.target.classList.contains('deleteBtn')) {
+        const jobCard = document.querySelector('.jobCard')
+        jobCard.remove()
+
+        const jobName = jobCard.querySelector('.jobName').innerText
+        interviewList = interviewList.filter(item => item.jobName !== jobName)
+        rejectedList = rejectedList.filter(item => item.jobName !== jobName)
+
+        counter()
+    }
+
+})
+function interviewRendering() {
+    interviewSection.innerHTML = ''
+    console.log(interviewList);
+
+    for (const interview of interviewList) {
+        // console.log(interview);
+
+        const div = document.createElement('div')
+        div.className = 'flex justify-between p-6 bg-white shadow jobCard'
+        div.innerHTML = `
+                <div  class="space-y-3 ">
+                    <div>
+                        <h1 class="text-xl font-bold jobName">${interview.jobName}</h1>
+                        <p class="text-semibold text-sm text-black/70 jobTitle">${interview.jobTitle}</p>
+                    </div>
+                    <p class="text-semibold text-sm text-black/70 jobInfo">
+                        ${interview.jobInfo}
+                    <div>
+                        <p class="bg-gray-200 px-3 rounded-sm inline-block text-sm font-semibold jobStatus">${interview.jobStatus}</p>
+                        <p class="text-semibold text-sm text-black/70 jobDescrip">${interview.jobDescrip}</p>
+                    </div>
+                    <div>
+                        <button class="btn btn-outline btn-success interviewBtn">INTERVIEW</button>
+                        <button class="btn btn-outline btn-secondary rejectedBtn">REJECTED</button>
+
+                    </div>
+                </div>
+                <div>
+                    <i class="fa-solid fa-trash-can cursor-pointer deleteBtn"></i>
+                </div>
+            `
+        interviewSection.appendChild(div)
+    }
+}
+function rejectedRendering() {
+    rejectedSection.innerHTML = ''
+
+    for (const rejected of rejectedList) {
+
+        const div = document.createElement('div')
+        div.className = 'flex justify-between p-6 bg-white shadow jobCard'
+        div.innerHTML = `
                 <div class="space-y-3">
                     <div>
                         <h1 class="text-xl font-bold jobName">${rejected.jobName}</h1>
@@ -155,28 +188,16 @@ mainContainer.addEventListener('click', function (event) {
                         <p class="text-semibold text-sm text-black/70 jobDescrip">${rejected.jobDescrip}</p>
                     </div>
                     <div>
-                        <button class="btn btn-outline btn-success">INTERVIEW</button>
-                        <button class="btn btn-outline btn-secondary">REJECTED</button>
+                        <button class="btn btn-outline btn-success interviewBtn">INTERVIEW</button>
+                        <button class="btn btn-outline btn-secondary rejectedBtn">REJECTED</button>
 
                     </div>
                 </div>
                 <div>
-                    <i class="fa-solid fa-trash-can cursor-pointer"></i>
+                    <i class="fa-solid fa-trash-can cursor-pointer deleteBtn" ></i>
                 </div>
             `
-                filteredSection.appendChild(div)
-            }
-        }
-        rejectedRendering()
+        rejectedSection.appendChild(div)
     }
+}
 
-})
-
-document.getElementById('jobsCard')
-    .addEventListener('click', function (event) {
-        if (event.target.classList.contains('deleteBtn')) {
-            const jobCard = document.querySelector('.jobCard')
-            jobCard.remove()
-            totalCount.innerText = jobsCard.children.length
-        }
-    })
