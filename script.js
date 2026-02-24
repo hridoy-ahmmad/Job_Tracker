@@ -8,10 +8,13 @@ let rejectedCount = document.getElementById('rejectedCount')
 let TotalJobs = document.getElementById('TotalJobs')
 let interviewSection = document.getElementById('interviewSection')
 let rejectedSection = document.getElementById('rejectedSection')
+const jobCard = document.getElementsByClassName('jobCard')
 let interviewList = []
 let rejectedList = []
-let courrentStatus = 'All'
+
 function changeActiveColor(id) {
+    console.log(id);
+
     rejectedBtn.classList.remove('bg-blue-600', 'text-white')
     interviewBtn.classList.remove('bg-blue-600', 'text-white')
     allJobs.classList.remove('bg-blue-600', 'text-white')
@@ -40,7 +43,6 @@ function changeActiveColor(id) {
         interviewSection.classList.add('hidden')
         rejectedSection.classList.remove('hidden')
 
-
     }
 }
 
@@ -56,6 +58,7 @@ function counter() {
 }
 counter()
 
+
 const mainContainer = document.querySelector('main')
 mainContainer.addEventListener('click', function (event) {
     if (event.target.classList.contains('interviewBtn')) {
@@ -66,7 +69,6 @@ mainContainer.addEventListener('click', function (event) {
         const jobStatus = parent.querySelector('.jobStatus').innerText
         const jobDescrip = parent.querySelector('.jobDescrip').innerText
         parent.querySelector('.jobStatus').innerText = 'Interviewed'
-
 
         const cardInfo = {
             jobName,
@@ -114,16 +116,13 @@ mainContainer.addEventListener('click', function (event) {
         }
         interviewList = interviewList.filter(item => item.jobName != cardInfo.jobName)
 
-
         counter()
-
         rejectedRendering()
         interviewRendering()
-
     }
 
     if (event.target.classList.contains('deleteBtn')) {
-        const jobCard = document.querySelector('.jobCard')
+        const jobCard = event.target.closest('.jobCard')
         jobCard.remove()
 
         const jobName = jobCard.querySelector('.jobName').innerText
